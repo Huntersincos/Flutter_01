@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 // 一些设备判断
 import 'dart:io';
+// 导入自定义状态文件
+import './home/homepage.dart';
 
 // 设置一些全局变量
 // 透明色
@@ -239,6 +241,12 @@ class myFirstPage extends StatelessWidget {
                     text: '我的',
                   ),
                 ])),
+        body: TabBarView(children: [
+          //Text('首页'),
+          HomelistPage(),
+          Text('商城'),
+          Text('我的')
+        ]),
       ),
     );
   }
