@@ -23,7 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    #cupertino_icons: ^0.1.0
+  #cupertino_icons: ^0.1.0
+    #get failed (65; ╵). exit code 65 多了一个空格 多一个空格
+  dio: ^3.0.9
   
 
 

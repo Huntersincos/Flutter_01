@@ -243,7 +243,9 @@ class myFirstPage extends StatelessWidget {
                 ])),
         body: TabBarView(children: [
           //Text('首页'),
-          HomelistPage(),
+          HomelistPage(
+            keypram: 'in_theaters',
+          ),
           Text('商城'),
           Text('我的')
         ]),
