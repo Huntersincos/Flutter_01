@@ -246,8 +246,14 @@ class myFirstPage extends StatelessWidget {
           HomelistPage(
             keypram: 'in_theaters',
           ),
-          Text('商城'),
-          Text('我的')
+          //Text('商城'),
+          HomelistPage(
+            keypram: 'in_theaters',
+          ),
+          HomelistPage(
+            keypram: 'in_theaters',
+          ),
+          //Text('我的')
         ]),
       ),
     );
