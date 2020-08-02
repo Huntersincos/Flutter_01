@@ -9,6 +9,8 @@ import './home/homepage.dart';
 // 设置一些全局变量
 // 透明色
 int clearColor = 0x00FFFFFF;
+// 动态改变导航标题
+String navTitle = '首页';
 //import 'package:english_words/english_words.dart';
 
 // =>  flutter单行函数或者方法的简写
@@ -83,7 +85,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // 安卓中体现
-      title: '首页',
+      // title: navTitle,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -118,7 +120,7 @@ class myFirstPage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('首页'),
+          title: Text(navTitle),
           // 是否居中 ios中默认居中 安卓在左边
           centerTitle: true,
           // 颜色
@@ -226,6 +228,25 @@ class myFirstPage extends StatelessWidget {
                 labelStyle: TextStyle(height: 0, fontSize: 10),
                 // 隐藏指示器
                 indicator: BoxDecoration(color: Color(clearColor)),
+                onTap: (int row) {
+                  print('切换11111tab + ${row}');
+                  if (row == 0) {
+                    navTitle = '首页';
+                    // AppBar(
+                    //   title: Text("首页"),
+                    // );
+                  } else if (row == 1) {
+                    // AppBar(
+                    //   title: Text("商城"),
+                    // );
+                    navTitle = '商城';
+                  } else {
+                    // AppBar(
+                    //   title: Text("我的"),
+                    // );
+                    navTitle = '我的';
+                  }
+                },
                 tabs: [
                   Tab(
                     icon: Icon(Icons.home),
@@ -248,10 +269,10 @@ class myFirstPage extends StatelessWidget {
           ),
           //Text('商城'),
           HomelistPage(
-            keypram: 'in_theaters',
+            keypram: 'coming_soon',
           ),
           HomelistPage(
-            keypram: 'in_theaters',
+            keypram: 'top250',
           ),
           //Text('我的')
         ]),

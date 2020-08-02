@@ -5,6 +5,9 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
+// 实现安卓的的打包 
+//1 生成签名 keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+// 2 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
