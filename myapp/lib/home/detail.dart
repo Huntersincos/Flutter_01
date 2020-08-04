@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/home/homepage.dart';
 import 'package:dio/dio.dart';
 import 'dart:convert';
+import '../home/baseWebview.dart';
 
 Dio detailDio = Dio();
 
@@ -25,10 +26,13 @@ class _MovieDetailState extends State<MovieDetail> {
     requestDetaiData();
     // print(detailDic);
     var largeImage = '';
+    var textDetial = '';
+    var bringDetailURL = '';
     final size = MediaQuery.of(context).size;
-
     try {
       largeImage = detailDic['images']['large'];
+      textDetial = detailDic['summary'];
+      bringDetailURL = detailDic['mobile_url'];
     } catch (e) {}
 
     return Scaffold(
@@ -38,22 +42,34 @@ class _MovieDetailState extends State<MovieDetail> {
         ),
         // body: Text('电影列表id:${widget.id}'),
         // ScrollView 是抽象类
-        body: CustomScrollView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          slivers: [
-            SliverPadding(
-              padding: EdgeInsets.all(0),
-              sliver: SliverList(
-                  delegate: SliverChildListDelegate(<Widget>[
-                FadeInImage.assetNetwork(
+        body: GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (BuildContext ctx) {
+              return new BaseWebView(
+                  webURL: bringDetailURL, navTtile: widget.title);
+            }));
+          },
+          child: CustomScrollView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            slivers: [
+              SliverPadding(
+                padding: EdgeInsets.all(0),
+                sliver: SliverList(
+                    delegate: SliverChildListDelegate(<Widget>[
+                  FadeInImage.assetNetwork(
                     placeholder: 'images/z1502640178971_350771.jpg',
                     image: largeImage,
                     width: size.width,
-                    height: size.height / 2)
-              ])),
-            ),
-          ],
+                    height: size.height / 2,
+                  ),
+                  Text(textDetial)
+                ])),
+              ),
+              // Text(textDetial)
+            ],
+          ),
         ));
   }
 

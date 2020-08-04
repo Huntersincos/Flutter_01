@@ -229,7 +229,7 @@ class myFirstPage extends StatelessWidget {
                 // 隐藏指示器
                 indicator: BoxDecoration(color: Color(clearColor)),
                 onTap: (int row) {
-                  print('切换11111tab + ${row}');
+                //  print('切换11111tab + ${row}');
                   if (row == 0) {
                     navTitle = '首页';
                     // AppBar(

@@ -26,6 +26,8 @@ dependencies:
   #cupertino_icons: ^0.1.0
     #get failed (65; ╵). exit code 65 多了一个空格 多一个空格
   dio: ^3.0.9
+  webview_flutter: ^0.3.22+1
+  
   
 
 
