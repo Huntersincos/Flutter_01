@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 // 导入dio
 import 'package:dio/dio.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 // 详情页
 import './detail.dart';
 
@@ -55,7 +56,7 @@ class _HomelistPageState extends State<HomelistPage>
           List avatar = itmes['casts'];
           return GestureDetector(
             onTap: () {
-              print(itmes['id']);
+              //print(itmes['id']);
               Navigator.push(context,
                   MaterialPageRoute(builder: (BuildContext ctx) {
                 return new MovieDetail(
@@ -219,4 +220,5 @@ class _HomelistPageState extends State<HomelistPage>
       });
     } catch (e) {}
   }
+
 }
