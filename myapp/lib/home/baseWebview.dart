@@ -34,14 +34,15 @@ class _BaseWebView extends State<BaseWebView> {
 
   @override
   Widget build(BuildContext context) {
-    _title = widget.navTtile;
+    // _title = widget.navTtile; 这种复制方式会导致setdata没法执行
     //CupertinoPageScaffold 具有ios风格的布局 安卓可能运行不起来
     return Platform.isIOS
         ? CupertinoPageScaffold(
             // CupertinoNavigationBar 修改按钮和点击图片和点击事件
             //backgroundColor: CupertinoColors.systemRed,
             navigationBar: CupertinoNavigationBar(
-                middle: Text("$_title"),
+                middle:
+                    _title == null ? Text(widget.navTtile) : Text("$_title"),
                 automaticallyImplyLeading: true,
                 // 重新返回按钮
                 // IconButton No Material widget found material组件必须外包一个 material根布局有Card, Dialog, Drawer Scaffold
@@ -107,7 +108,7 @@ class _BaseWebView extends State<BaseWebView> {
       // 监听
       onWebViewCreated: (controller) {
         _controller = controller;
-        _title = widget.navTtile;
+        // _title = widget.navTtile;
       },
       onPageFinished: (url) {
         // js监听
