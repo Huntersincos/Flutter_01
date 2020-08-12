@@ -102,6 +102,7 @@ class _BaseWebView extends State<BaseWebView> {
 // webview=== init
   WebView creatWebView() {
     return WebView(
+      //showProgress: () {},
       initialUrl: widget.webURL,
       //运行js
       javascriptMode: JavascriptMode.unrestricted,

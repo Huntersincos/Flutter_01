@@ -70,7 +70,7 @@ String navTitle = '首页';
 
 // class MyFristPage extends StatelessWidget{
 //   @override
-//   Widget build(BuildContext context) {
+//   Widget build(BuildContext context) { StatelessWidget
 //     return Text('你好');
 //   }
 // }
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       // 安卓中体现
-      // title: navTitle,
+      //title: navTitle,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -104,14 +104,21 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // 返回一个Scaffold
-      home: myFirstPage(),
+      home: MyFirstPage(),
       //Text("hello word"),
     );
   }
 }
 
 // ignore: camel_case_types
-class myFirstPage extends StatelessWidget {
+class MyFirstPage extends StatefulWidget {
+  @override
+  _MyFirstPage createState() {
+    return _MyFirstPage();
+  }
+}
+
+class _MyFirstPage extends State<MyFirstPage> {
   @override
   // 每个类中都有一个bulid
   Widget build(BuildContext context) {
@@ -229,9 +236,12 @@ class myFirstPage extends StatelessWidget {
                 // 隐藏指示器
                 indicator: BoxDecoration(color: Color(clearColor)),
                 onTap: (int row) {
-                //  print('切换11111tab + ${row}');
+                  //  print('切换11111tab + ${row}');
                   if (row == 0) {
-                    navTitle = '首页';
+                    setState(() {
+                      navTitle = '首页';
+                    });
+
                     // AppBar(
                     //   title: Text("首页"),
                     // );
@@ -239,12 +249,17 @@ class myFirstPage extends StatelessWidget {
                     // AppBar(
                     //   title: Text("商城"),
                     // );
-                    navTitle = '商城';
+                    setState(() {
+                      navTitle = '商城';
+                    });
                   } else {
                     // AppBar(
                     //   title: Text("我的"),
                     // );
-                    navTitle = '我的';
+                    setState(() {
+                      navTitle = '我的';
+                    });
+                    //navTitle = '我的';
                   }
                 },
                 tabs: [

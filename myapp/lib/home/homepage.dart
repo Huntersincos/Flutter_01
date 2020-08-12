@@ -103,8 +103,11 @@ class _HomelistPageState extends State<HomelistPage>
                       children: [
                         CircularProgressIndicator(
                           backgroundColor: Theme.of(context).primaryColor,
+                          value: 1.0,
+                          strokeWidth: 4,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                         ),
-                        // 作为间隔用过
+                        // 作为间隔用 SizedBox
                         SizedBox(
                           width: 10,
                         ),
